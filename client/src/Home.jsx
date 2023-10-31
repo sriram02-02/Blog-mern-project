@@ -9,9 +9,9 @@ function Home() {
       <div
         class="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
+        // aria-hidden="true"
       >
         <div class="modal-dialog mt-5 pt-4 pe-4 me-5">
           <div class="modal-content">
@@ -56,22 +56,22 @@ function Home() {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active p-3" aria-current="page" href="#">
+                <a class="nav-link fc active p-3" aria-current="page" href="#">
                   Posts
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link p-3" href="#">
+                <a class="nav-link fc p-3" href="#">
                   Pages
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link p-3" href="#">
+                <a class="nav-link fc p-3" href="#">
                   Explore
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link p-3" href="#">
+                <a class="nav-link fc p-3" href="#">
                   About
                 </a>
               </li>

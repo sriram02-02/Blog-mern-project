@@ -2,10 +2,10 @@ import React from "react";
 import Card from "./components/card";
 import logo from "../src/components/logo.png";
 
+
 function LandingPage() {
   return (
     <div>
-      
         <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
           <div class="container d-flex">
             <a class="navbar-brand" href="#">
@@ -21,8 +21,7 @@ function LandingPage() {
 
       // main content
       <Card/>
-      <Card/>
-      <Card/>
+      <h1 className="">Please login to view more posts</h1>
     </div>
   );
 }

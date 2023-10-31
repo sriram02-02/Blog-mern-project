@@ -25,52 +25,52 @@ function Signup() {
   };
 
   return (
-    <div className="form-div mx-auto">
+    <div classNameName="form-div mx-auto">
       <form onSubmit={handleSubmit}>
         <h2>Register</h2>
-        <div class="mb-2">
-          <label for="exampleInputEmail1" class="form-label">
+        <div className="mb-2">
+          <label for="exampleInputEmail1" className="form-label">
             Name
           </label>
           <input
             type="name"
-            class="form-control"
+            className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             required
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div class="mb-2">
-          <label for="exampleInputEmail1" class="form-label">
+        <div className="mb-2">
+          <label for="exampleInputEmail1" className="form-label">
             Email address
           </label>
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             required
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div class="mb-2">
-          <label for="exampleInputPassword1" class="form-label">
+        <div className="mb-2">
+          <label for="exampleInputPassword1" className="form-label">
             Password
           </label>
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
             required
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         already have an account?
-        <Link to="/login" className="ms-1">
-          <i className="t" >login</i>
+        <Link to="/login" classNameName="ms-1">
+          <i classNameName="t" >login</i>
         </Link>
-        <button type="submit" class="btn btn-outline-dark mt-3 w-100">
+        <button type="submit" className="btn btn-outline-dark mt-3 w-100">
           Signup
         </button>
       </form>
