@@ -1,0 +1,134 @@
+.form-div {
+  align-items: center;
+  box-shadow: 0px 1px 10px #888888;
+  margin-top: 7rem;
+  padding: 3rem;
+  width: 25rem;
+  height: auto;
+  border-radius: 10px;
+}
+
+h2,
+h3 {
+  text-align: center;
+}
+
+.login-text {
+  text-decoration: underline;
+}
+
+.home-login-btn {
+  width: 100px;
+}
+
+.input:focus{
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar {
+  box-shadow: 0px 1px 10px #888888;
+  width: 100%;
+}
+
+.blog-image {
+  border-radius: 10px;
+}
+
+.modal-backdrop {
+  background: none;
+}
+.modal {
+  background: none;
+  margin-top: 10px;
+  padding-right: 1%;
+}
+
+.modal-dialog {
+  width: 200px;
+}
+
+
+.t{
+  color: black;
+  text-decoration: underline;
+}
+
+.respo-acc-btn{
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+}
+
+.account {
+  width: 30px;
+  height: auto;
+  text-align: center;
+}
+
+.right-button{
+  text-align: center;
+}
+
+.logo {
+  width: 6rem;
+  height: 42px;
+}
+
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.navbar-toggler {
+  cursor: pointer;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+@media (max-width: 992px) {
+  .account {
+    display: none;
+    
+  }
+
+  .modal-backdrop {
+    background: none;
+  }
+  .modal {
+    background: none;
+    margin-top: 252px;
+    padding-right: 60%;
+  }
+  .respo-acc-btn{
+    font-size: 16px;
+    text-align: left;
+    margin-left: 15px;
+
+  }
+  .respo-acc-btn:hover{
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 768px) {
+  .account {
+    display: none;
+  }
+
+  .modal-backdrop {
+    background: none;
+  }
+  .modal {
+    background: none;
+    margin-top: 252px;
+    padding-right: 50%;
+  }
+  .respo-acc-btn{
+    font-size: 16px;
+    text-align: left;
+    margin-left: 15px;
+  }
+}
