@@ -2,23 +2,25 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
 
+  axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:3001/login", { email, password })
       .then((result) => {
         console.log(result);
-        if (result.data === "success") {
+        if (result.data.msg === "Success") {
+          Cookies.set("token", result.data.token);
           navigate("/home");
-        }
-        else{
-          alert("Invalid credentials, please register...")
+        } else {
+          alert("Invalid credentials, please register...");
         }
       })
       .catch((err) => console.error(err));

@@ -8,12 +8,27 @@
   border-radius: 10px;
 }
 
+.post-div {
+  align-items: center;
+  box-shadow: 0px 1px 10px #888888;
+  margin-top: 4rem;
+  padding: 3rem;
+  width: 40vw;
+  height: 75vh;
+  border-radius: 10px;
+}
+
+.post-head , .profile-user{
+  
+  text-align: center;
+}
+
 h2,
 h3 {
   text-align: center;
 }
 
-.fc{
+.fc {
   color: black;
 }
 
@@ -25,7 +40,7 @@ h3 {
   width: 100px;
 }
 
-.input:focus{
+.input:focus {
   box-shadow: none;
   outline: none;
 }
@@ -52,16 +67,29 @@ h3 {
   width: 200px;
 }
 
-
-.t{
+.t {
   color: black;
   text-decoration: underline;
 }
 
-.respo-acc-btn{
+.noPost{
+  text-align: center;
+  margin-top: 40vh;
+}
+
+.card-div{
+  width: 65%;
+  align-items: center;
+}
+
+.respo-acc-btn {
   cursor: pointer;
   text-align: center;
   font-size: 14px;
+}
+
+textarea{
+  resize: none;
 }
 
 .account {
@@ -70,7 +98,7 @@ h3 {
   text-align: center;
 }
 
-.right-button{
+.right-button {
   text-align: center;
 }
 
@@ -78,7 +106,6 @@ h3 {
   width: 6rem;
   height: 42px;
 }
-
 
 .nav-link:hover {
   text-decoration: underline;
@@ -95,7 +122,6 @@ h3 {
 @media (max-width: 992px) {
   .account {
     display: none;
-    
   }
 
   .modal-backdrop {
@@ -106,13 +132,12 @@ h3 {
     margin-top: 252px;
     padding-right: 60%;
   }
-  .respo-acc-btn{
+  .respo-acc-btn {
     font-size: 16px;
     text-align: left;
     margin-left: 15px;
-
   }
-  .respo-acc-btn:hover{
+  .respo-acc-btn:hover {
     text-decoration: underline;
   }
 }
@@ -120,6 +145,20 @@ h3 {
 @media (max-width: 768px) {
   .account {
     display: none;
+  }
+
+
+  .card-div{
+    width: 100%;
+  }
+  .post-div {
+    align-items: center;
+    box-shadow: 0px 1px 10px #888888;
+    margin-top: 4rem;
+    padding: 3rem;
+    width: 70vw;
+    height: 75vh;
+    border-radius: 10px;
   }
 
   .modal-backdrop {
@@ -130,9 +169,31 @@ h3 {
     margin-top: 252px;
     padding-right: 50%;
   }
-  .respo-acc-btn{
+  .respo-acc-btn {
     font-size: 16px;
     text-align: left;
     margin-left: 15px;
   }
+}
+
+@media (max-width: 482px) {
+  .post-div {
+    align-items: center;
+    box-shadow: 0px 1px 10px #888888;
+    margin-top: 4rem;
+    padding: 3rem;
+    width: 90vw;
+    height: 75vh;
+    border-radius: 10px;
+  }
+  .form-div {
+    align-items: center;
+    box-shadow: 0px 1px 10px #888888;
+    margin-top: 7rem;
+    padding: 3rem;
+    width: 20rem;
+    height: auto;
+    border-radius: 10px;
+  }
+
 }

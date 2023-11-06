@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Signup() {
-  const [name, setName] = useState();
+  const [username, setUserName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
@@ -12,25 +12,25 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/register", { name, email, password })
+      .post("http://localhost:3001/register", { username, email, password })
       .then((result) => {
         console.log(result);
         if (result.data != "already present") {
           navigate("/login");
         } else {
-          alert("Already registered with this email, please login...");
+          alert("Already registered with this email / username, please login...");
         }
       })
       .catch((err) => console.error(err));
   };
 
   return (
-    <div classNameName="form-div mx-auto">
+    <div className="form-div mx-auto">
       <form onSubmit={handleSubmit}>
         <h2>Register</h2>
         <div className="mb-2">
           <label for="exampleInputEmail1" className="form-label">
-            Name
+            Username
           </label>
           <input
             type="name"
@@ -38,7 +38,7 @@ function Signup() {
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             required
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setUserName(e.target.value)}
           />
         </div>
         <div className="mb-2">
@@ -67,8 +67,8 @@ function Signup() {
           />
         </div>
         already have an account?
-        <Link to="/login" classNameName="ms-1">
-          <i classNameName="t" >login</i>
+        <Link to="/login" className="ms-1">
+          <i className="t">login</i>
         </Link>
         <button type="submit" className="btn btn-outline-dark mt-3 w-100">
           Signup

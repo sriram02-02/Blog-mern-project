@@ -1,97 +1,39 @@
-import React from "react";
-import Card from "./components/card";
-import my_image from "../src/components/account.jpg";
-import logo from "../src/components/logo.png";
+import React, { useEffect, useState } from "react";
+import Card from "./components/Card";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import NoPost from "./components/NoPost";
+import Navbar from "./components/navbar";
 
 function Home() {
-  return (
-    <div className="pt-5">
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        // aria-hidden="true"
-      >
-        <div class="modal-dialog mt-5 pt-4 pe-4 me-5">
-          <div class="modal-content">
-            <div class="modal-body">
-              <button className="btn btn-outline-dark mb-2 w-100">
-                <a class="nav-link " aria-current="page" href="#">
-                  Profile
-                </a>
-              </button>
-              <br />
-              <button className="btn btn-outline-dark mb-2 w-100">
-                <a class="nav-link" aria-current="page" href="#">
-                  Settings
-                </a>
-              </button>
-              <br />
-              <button className="btn btn-outline-dark mb-2 w-100">
-                <a class="nav-link" aria-current="page" href="/">
-                  Logout
-                </a>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <img className="logo" src={logo}></img>
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link fc active p-3" aria-current="page" href="#">
-                  Posts
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fc p-3" href="#">
-                  Pages
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fc p-3" href="#">
-                  Explore
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fc p-3" href="#">
-                  About
-                </a>
-              </li>
-            </ul>
-            <div
-              className="right-button"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            >
-              <img className="account" src={my_image}></img>
-              <p className="respo-acc-btn mb-0">My Account</p>
-            </div>
-          </div>
-        </div>
-      </nav>
+  const navigate = useNavigate();
 
-      <Card />
-      <Card />
-      <Card />
+  axios.defaults.withCredentials = true;
+  useEffect(() => {
+    if (!Cookies.get("token")) {
+      navigate("/");
+      navigate(0);
+    }
+  }, []);
+
+  const [posts, setPosts] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    axios.get("http://localhost:3001/post/").then((res) => {
+      setPosts(res.data.reverse());
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return "loading ...";
+  }
+
+  return (
+    <div>
+      <Navbar />
+      {posts.length > 0 ? <Card const data= {posts} posts={posts} /> : <NoPost />}
     </div>
   );
 }
