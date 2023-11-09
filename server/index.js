@@ -40,8 +40,9 @@ app.post("/upload-image", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      return res.status(201)
-      .json({ url: "http://localhost:3001/image/" + imageName });
+      return res
+        .status(201)
+        .json({ url: "http://localhost:3001/image/" + imageName });
     }
   });
 });
@@ -65,9 +66,13 @@ app.post("/login", (req, res) => {
     if (user) {
       bcrypt.compare(password, user.password, (err, response) => {
         if (response) {
-          const token = jwt.sign({ email: user.email, username: user.username }, "jwt-secret-key", {
-            expiresIn: "1d",
-          });
+          const token = jwt.sign(
+            { email: user.email, username: user.username },
+            "jwt-secret-key",
+            {
+              expiresIn: "1d",
+            }
+          );
           res.json({ token, msg: "Success" });
         } else {
           res.json("the password is incorrect");
@@ -81,21 +86,21 @@ app.post("/login", (req, res) => {
 
 app.post("/register", (req, res) => {
   const { username, email, password } = req.body;
-  bcrypt.hash(password, 10).then((hash) => {
-    userModel
-      .find({ email: email , username: username  })
-      .then((user) => {
-        if (!user) {
+  userModel
+    .findOne({ email: email, username: username })
+    .then((user) => {
+      if (!user) {
+        bcrypt.hash(password, 10).then((hash) => {
           userModel
             .create({ username, email, password: hash })
             .then((user) => res.json(user))
             .catch((err) => res.json(err));
-        } else {
-          res.json("already present");
-        }
-      })
-      .catch((err) => console.log(err.message));
-  });
+        });
+      } else {
+        res.json("already present");
+      }
+    })
+    .catch((err) => console.log(err.message));
 });
 
 app.get("/post", (req, res) => {

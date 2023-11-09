@@ -15,7 +15,7 @@ function Signup() {
       .post("http://localhost:3001/register", { username, email, password })
       .then((result) => {
         console.log(result);
-        if (result.data != "already present") {
+        if (result.data !== "already present") {
           navigate("/login");
         } else {
           alert("Already registered with this email / username, please login...");
