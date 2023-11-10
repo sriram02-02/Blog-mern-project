@@ -7,7 +7,7 @@ function Card({ posts }) {
         return (
           <div class="card pt-0 p-3 mb-5">
             <div class="card-header bg-transparent border-success ps-1 pb-0 mt-2">
-              <h5 className="">posted by {post.username}...</h5>
+              <h5 className="">{post.username}</h5>
             </div>
             <img className="blog-image w-100 mt-3" src={post.photo} />
 
